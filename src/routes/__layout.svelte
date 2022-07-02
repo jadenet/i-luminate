@@ -1,0 +1,41 @@
+<script lang="ts">
+    import "../app.css";
+
+    let nav: HTMLElement;
+
+    function reverseNavVisibility() {
+        nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
+    }
+
+    function removeNavVisibility() {
+        nav.style.display = "none";
+    }
+</script>
+
+<header class="flex flex-col md:flex-row items-center gap-4 md:gap-0 p-4 px-8 bg-rose-400">
+    <div class="flex justify-between w-full">
+        <a href="/" on:click={removeNavVisibility} class="font-semibold">I Luminate</a>
+
+        <div class="hidden md:flex gap-8 align-center">
+            <a href="/saved" class="font-semibold">Saved</a>
+            <a href="/login" class="font-semibold">Login</a>
+            <a href="/cart" class="font-semibold">Cart</a>
+        </div>
+    
+        <div class="md:hidden" on:click={reverseNavVisibility}>
+            ... 
+        </div>
+    </div>
+
+    <div class="hidden flex-col gap-4 w-full" on:click={removeNavVisibility} bind:this={nav}>
+        <a href="/saved" class="font-semibold">Saved</a>
+        <a href="/login" class="font-semibold">Login</a>
+        <a href="/cart" class="font-semibold">Cart</a>
+    </div>
+</header>
+
+<slot></slot>
+
+<footer class="flex justify-center bg-rose-400 h-32">
+    @2022 I Luminate
+</footer>
