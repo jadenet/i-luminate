@@ -23,26 +23,15 @@
 
 <h1 class="text-center p-8 text-4xl font-extrabold">Create your own lamp</h1>
 
-<div class="px-2 md:px-16">
-    <div class="flex flex-col md:flex-row justify-center items-center gap-4 p-6">
-        <img src={lampImage} alt="" class="md:h-96 rounded-xl">
-    
-        <div class="flex flex-col justify-between w-full md:w-1/2 md:h-96">
-            <div class="grid md:grid-cols-2 items-center gap-4">
-                <Picker items={items} name="Colors" bind:currentSelection={currentSelection.color}></Picker>
-                <Picker items={items} name="Type" bind:currentSelection={currentSelection.type}></Picker>
-                <Picker items={items} name="Shade" bind:currentSelection={currentSelection.shade}></Picker>
-                <Picker items={items} name="Pattern" bind:currentSelection={currentSelection.pattern}></Picker>
-            </div>
+<div class="grid px-10 md:px-44 grid-rows-7 grid-cols-1 md:grid-cols-7 gap-4">
+    <img src={lampImage} alt="lamp" class="rounded-xl md:row-[1_/_span_7] md:col-start-1 md:col-span-3">
 
-            <div class="flex flex-col md:flex-row justify-between px-2 md:px-4">
-                <p class="text-lg font-semibold">Price: $500</p>
+    <Picker items={items} name="Colors" bind:currentSelection={currentSelection.color} gridArea="md:row-start-1 md:col-start-4 md:row-span-3 md:col-span-2"></Picker>
+    <Picker items={items} name="Type" bind:currentSelection={currentSelection.type} gridArea="md:row-start-1 md:col-start-6 md:row-span-3 md:col-span-2"></Picker>
+    <Picker items={items} name="Shade" bind:currentSelection={currentSelection.shade} gridArea="md:row-start-4 md:col-start-4 md:row-span-3 md:col-span-2"></Picker>
+    <Picker items={items} name="Pattern" bind:currentSelection={currentSelection.pattern} gridArea="md:row-start-4 md:col-start-6 md:row-span-3 md:col-span-2"></Picker>
 
-                <div class="flex gap-8">
-                    <button on:click={saveSelection(currentSelection)} method="post" class="font-semibold text-lg">Save</button>
-                    <button class="font-semibold text-lg">Add to cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <p class="font-semibold text-lg md:row-start-7 md:col-start-4 md:row-span-1 md:col-span-1">Price: $500</p>
+    <button on:click={saveSelection(currentSelection)} method="post" class="font-semibold text-lg text-left md:text-right md:row-start-7 md:col-start-6 md:row-span-1 md:col-span-1">Save</button>
+    <button class="font-semibold text-lg active:scale-110 text-left md:text-right md:row-start-7 md:col-start-7 md:row-span-1 md:col-span-1">Add to cart</button>
 </div>
