@@ -1,40 +1,52 @@
 <script lang="ts">
     export let items: any;
     export let name: string;
+    export let gridArea: string;
 
     let index: number = 1;
-    let increments: number = 3;
+    let increment: number = 3;
     export let currentSelection: number;
     let currentSelectionItem: string = items[currentSelection].name;
 
-    // function moveSlide(n: number) {
-    //     index += n;
-    //     showSlides();
-    // }
+    function slideRight() {
+        index += increment;
 
-    // function showSlides() {
-    //     for (let i = 0; i < slides.length; i++) {
-    //         const element = slides[index];
-    //         if (i in [index, index+1, index+2]) {
-    //             element.style.display = "block";
-    //         } else {
-    //             element.style.display = "none";
-    //         };
-    //     }
-    // }
+        if (index > items.length) {
+            index = 1;
+        }
+    }
+
+    function slideLeft() {
+        index -= increment;
+
+        if (index < 1) {
+            const quotient = items.length % increment;
+
+            if (quotient === 0) {
+                index = items.length - (increment - 1);
+            }
+
+            index = items.length - (quotient - 1);
+        }
+    }
 </script>
 
-<div class="flex flex-col justify-around py-3 gap-2 bg-rose-200 rounded-xl">
-    <h2 class="text-center opacity-95">{name}</h2>
+
+<div class="flex flex-col justify-around py-3 gap-2 bg-rose-200 rounded-xl {gridArea}">
+    <h2 class="text-center font-semibold">{name}</h2>
     <div class="flex justify-evenly items-center">
-        <p class="text-3xl font-light">{"<"}</p>
-        {#each items as item}
-            <button class="flex flex-[.2] justify-around flex-col" on:click={() => {currentSelection = item.id; currentSelectionItem = item.name}}>
-                <div class="h-12 rounded-lg" style="background-image:url({item.image}); background-color:{item.color}"></div>
-                <p class="text-center font-semibold">{item.name}</p>
-            </button>
+        <button class="text-3xl font-light" on:click={slideLeft}>{"<"}</button>
+        <div class="flex flex-[.7] justify-between items-center">
+            {#each items as item}
+            {#if [index, index+1, index+2].includes(item.id)}
+                <div class="flex flex-[.3] justify-around flex-col">
+                    <button class="h-12 rounded-lg" style="background-image:url({item.image}); background-color:{item.color}" on:click={() => {currentSelection = item.id; currentSelectionItem = item.name}}></button>
+                    <p class="text-center">{item.name}</p>
+                </div>
+            {/if}
         {/each}
-        <p class="text-3xl font-light">{">"}</p>
+        </div>
+        <button class="text-3xl font-light" on:click={slideRight}>{">"}</button>
     </div>
-    <p class="ml-8 opacity-95">Current selection: {currentSelectionItem}</p>
+    <p class="mx-8">Current selection: {currentSelectionItem}</p>
 </div>
