@@ -22,9 +22,7 @@
             <a href="/cart" class="font-semibold">Cart</a>
         </div>
     
-        <div class="md:hidden" on:click={reverseNavVisibility}>
-            ... 
-        </div>
+        <button class="md:hidden" on:click={reverseNavVisibility}>... </button>
     </div>
 
     <div class="hidden flex-col gap-4 w-full" on:click={removeNavVisibility} bind:this={nav}>
@@ -36,6 +34,6 @@
 
 <slot></slot>
 
-<footer class="flex justify-center bg-rose-400 h-32">
+<footer class="flex justify-center bg-rose-400 h-32 mt-8">
     @2022 I Luminate
 </footer>

@@ -11,16 +11,17 @@
     <img src={img} alt="lamp" class="w-auto md:w-1/2 rounded-xl">
 
     <div class="flex flex-col justify-between">
-        <div class="flex flex-col gap-2 flex-grow">
-            <p class="text-lg opacity-90">Color: {color}</p>
-            <p class="text-lg opacity-90">Type: {type}</p>
-            <p class="text-lg opacity-90">Shade: {shade}</p>
-            <p class="text-lg font-medium opacity-90">Pattern: {pattern}</p>
+        <div class="flex flex-col gap-1 flex-grow">
+            <p class="text-lg">Color: {color}</p>
+            <p class="text-lg">Type: {type}</p>
+            <p class="text-lg">Shade: {shade}</p>
+            <p class="text-lg">Pattern: {pattern}</p>
         </div>
-        <div class="flex justify-around">
-            <a href="/" class="text-lg font-semibold">edit</a>
-            <button class="text-lg font-semibold">clone</button>
-            <button class="text-lg font-semibold">delete</button>
+        <div class="grid grid-cols-4 md:grid-cols-2">
+            <button class="font-semibold">Add</button>
+            <a href="/" class="font-semibold text-center">Edit</a>
+            <button class="font-semibold">Clone</button>
+            <button class="font-semibold">Delete</button>
         </div>
     </div>
 </div>
