@@ -16,9 +16,8 @@
     <div class="flex justify-between w-full">
         <a href="/" on:click={removeNavVisibility} class="font-semibold">I Luminate</a>
 
-        <div class="hidden md:flex gap-8 align-center">
+        <div class="hidden md:flex gap-8 items-center">
             <a href="/saved" class="font-semibold">Saved</a>
-            <a href="/login" class="font-semibold">Login</a>
             <a href="/cart" class="font-semibold">Cart</a>
         </div>
     
@@ -27,7 +26,6 @@
 
     <div class="hidden flex-col gap-4 w-full" on:click={removeNavVisibility} bind:this={nav}>
         <a href="/saved" class="font-semibold">Saved</a>
-        <a href="/login" class="font-semibold">Login</a>
         <a href="/cart" class="font-semibold">Cart</a>
     </div>
 </header>
@@ -36,4 +34,5 @@
 
 <footer class="flex justify-center bg-rose-400 h-32 mt-8">
     @2022 I Luminate
+    <a href="/admin" class="font-semibold">Admin</a>
 </footer>

@@ -6,7 +6,7 @@
     let index: number = 1;
     let increment: number = 3;
     export let currentSelection: number;
-    let currentSelectionItem: string = items[currentSelection].name;
+    $: currentSelectionName = items.find((item: any) => {return item.id === currentSelection}).name
 
     function slideRight() {
         index += increment;
@@ -38,15 +38,15 @@
         <button class="text-3xl font-light" on:click={slideLeft}>{"<"}</button>
         <div class="flex flex-[.7] justify-between items-center">
             {#each items as item}
-            {#if [index, index+1, index+2].includes(item.id)}
-                <div class="flex flex-[.3] justify-around flex-col">
-                    <button class="h-12 rounded-lg" style="background-image:url({item.image}); background-color:{item.color}" on:click={() => {currentSelection = item.id; currentSelectionItem = item.name}}></button>
-                    <p class="text-center">{item.name}</p>
-                </div>
-            {/if}
-        {/each}
+                {#if [index, index+1, index+2].includes(item.id)}
+                    <div class="flex flex-[.3] justify-around flex-col">
+                        <button class="h-12 rounded-lg bg-[image:url({item.image})]" style="background-color:{item.color}" on:click={() => {currentSelection = item.id;}}></button>
+                        <p class="text-center">{item.name}</p>
+                    </div>
+                {/if}
+            {/each}
         </div>
         <button class="text-3xl font-light" on:click={slideRight}>{">"}</button>
     </div>
-    <p class="mx-8">Current selection: {currentSelectionItem}</p>
+    <p class="mx-8">Current selection: {currentSelectionName}</p>
 </div>
