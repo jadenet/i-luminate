@@ -18,7 +18,7 @@
 
         <div class="hidden md:flex gap-8 items-center">
             <a href="/saved" class="font-semibold">Saved</a>
-            <a href="/cart" class="font-semibold">Cart</a>
+            <a href="/admin" class="font-semibold">Admin</a>
         </div>
     
         <button class="md:hidden" on:click={reverseNavVisibility}>... </button>
@@ -26,7 +26,7 @@
 
     <div class="hidden flex-col gap-4 w-full" on:click={removeNavVisibility} bind:this={nav}>
         <a href="/saved" class="font-semibold">Saved</a>
-        <a href="/cart" class="font-semibold">Cart</a>
+        <a href="/admin" class="font-semibold">Admin</a>
     </div>
 </header>
 
@@ -34,5 +34,4 @@
 
 <footer class="flex justify-center bg-rose-400 h-32 mt-8">
     @2022 I Luminate
-    <a href="/admin" class="font-semibold">Admin</a>
 </footer>
