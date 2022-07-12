@@ -1,4 +1,4 @@
-<script type="ts">
+<!-- <script type="ts">
 	import LampImage from '$lib/components/LampImage.svelte';
 	import { onMount } from 'svelte';
 
@@ -27,8 +27,8 @@
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 px-12">
 	{#each saved as item}
-		<div class="grid grid-cols-4 lg:grid-rows-5 lg:grid-cols-7 gap-4 p-3 rounded-xl bg-rose-200">
-			<div class="col-span-4 lg:row-start-1 lg:row-span-5 lg:col-start-1 lg:col-span-4 rounded-xl">
+		<div class="grid grid-cols-4 lg:grid-rows-5 lg:grid-cols-6 gap-4 p-3 rounded-xl bg-rose-200">
+			<div class="col-span-4 lg:row-start-1 lg:row-span-5 lg:col-start-1 lg:col-span-4 rounded-xl w-28 h-52">
 				<LampImage
 					colorId={item.color}
 					typeId={item.type}
@@ -37,30 +37,29 @@
 				/>
 			</div>
 
-			<p class="text-lg col-span-4 lg:row-start-1 lg:col-start-5 lg:col-span-3">
+			<p class="text-lg col-span-4 lg:row-start-1 lg:col-start-4 lg:col-span-3">
 				Color: {item.color}
 			</p>
-			<p class="text-lg col-span-4 lg:row-start-2 lg:col-start-5 lg:col-span-3">
+			<p class="text-lg col-span-4 lg:row-start-2 lg:col-start-4 lg:col-span-3">
 				Type: {item.type}
 			</p>
-			<p class="text-lg col-span-4 lg:row-start-3 lg:col-start-5 lg:col-span-3">
+			<p class="text-lg col-span-4 lg:row-start-3 lg:col-start-4 lg:col-span-3">
 				Shade: {item.shade}
 			</p>
-			<p class="text-lg col-span-4 lg:row-start-4 lg:col-start-5 lg:col-span-3">
+			<p class="text-lg col-span-4 lg:row-start-4 lg:col-start-4 lg:col-span-3">
 				Pattern: {item.pattern}
 			</p>
 
-			<button class="font-semibold lg:row-start-5 lg:col-start-5">Add</button>
 			<a
 				href="/"
-				class="font-semibold self-center justify-self-center lg:row-start-5 lg:col-start-6">Edit</a
+				class="font-semibold self-center justify-self-center lg:row-start-5 lg:col-start-4">Edit</a
 			>
-			<button class="font-semibold lg:row-start-5 lg:col-start-7" on:click={() => cloneItem(item)}
+			<button class="font-semibold lg:row-start-5 lg:col-start-5" on:click={() => cloneItem(item)}
 				>Clone</button
 			>
-			<button class="font-semibold lg:row-start-5 lg:col-start-8" on:click={() => deleteItem(item)}
+			<button class="font-semibold lg:row-start-5 lg:col-start-6" on:click={() => deleteItem(item)}
 				>Delete</button
 			>
 		</div>
 	{/each}
-</div>
+</div> -->

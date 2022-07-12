@@ -5,7 +5,7 @@
 	export let items: any;
 	export let name: string;
 	export let classes: string;
-	export let currentSelection: number;
+	export let currentSelectionId: number;
 	let currentSelectionName: string;
 
 	let index: number = 1;
@@ -27,9 +27,9 @@
 
 			if (quotient === 0) {
 				index = items.length - (increment - 1);
+			} else {
+				index = items.length - (quotient - 1);
 			}
-
-			index = items.length - (quotient - 1);
 		}
 	}
 
@@ -38,13 +38,13 @@
 		items = await itemsResponse.json();
 
 		currentSelectionName = items.find((item: any) => {
-			return item.id === currentSelection;
+			return item.id === currentSelectionId;
 		}).name;
 	});
 </script>
 
 <div
-	class="flex flex-col justify-center py-3 gap-2 bg-rose-200 rounded-xl row-span-2 col-span-4 {classes}"
+	class="flex flex-col justify-center py-3 gap-2 bg-rose-100 rounded-xl row-span-2 col-span-4 {classes}"
 >
 	<h2 class="text-center font-semibold">{name}</h2>
 	<div class="flex justify-evenly items-center">
@@ -54,12 +54,16 @@
 				{#if [index, index + 1, index + 2].includes(item.id)}
 					<div class="flex flex-[.3] justify-around flex-col">
 						<button
-							class="w-full h-12 rounded-lg flex flex-col items-center justify-center" on:click={() => {
-								currentSelection = item.id;
+							class="w-full h-12 rounded-lg flex flex-col items-center justify-center"
+							on:click={() => {
+								currentSelectionId = item.id;
 								currentSelectionName = item.name;
 							}}
 						>
-							<Texture textureType="{name.toLowerCase()}s" id={item.id === 3 && name+"s" === "Shades" ? 3.5 : item.id} />
+							<Texture
+								textureType="{name.toLowerCase()}s"
+								id={item.id === 3 && name + 's' === 'Shades' ? 3.5 : item.id}
+							/>
 						</button>
 						<p class="text-center">{item.name}</p>
 					</div>
@@ -68,5 +72,5 @@
 		</div>
 		<button class="text-3xl font-light" on:click={slideRight}>{'>'}</button>
 	</div>
-	<p class="mx-8">Current selection: {currentSelectionName}</p>
+	<p class="mx-8 font-light">Current selection: {currentSelectionName}</p>
 </div>

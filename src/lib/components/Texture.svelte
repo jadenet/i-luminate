@@ -31,14 +31,6 @@
 		<div class="bg-white w-full h-full" />
 	{:else if id === 2}
 		<div class="bg-white w-full h-full rounded-t-full" />
-	{:else if id === 3}
-		<div
-			class="w-0 h-0 border-solid border-l-[5rem] border-l-transparent border-r-[5rem] border-r-transparent border-b-[5rem] border-white"
-		/>
-	{:else if id === 3.5}
-		<div
-			class="w-0 h-0 border-solid border-l-[1.5rem] border-l-transparent border-r-[1.5rem] border-r-transparent border-b-[3rem] border-white"
-		/>
 	{/if}
 {:else if textureType === 'patterns'}
 	<!-- <div /> -->
